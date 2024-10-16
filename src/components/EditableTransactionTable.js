@@ -160,7 +160,10 @@ export default function EditableTransactionTable() {
     setTransactions((prevTransactions) => [
       ...prevTransactions,
       {
-        id: prevTransactions[prevTransactions.length - 1].id + 1,
+        id:
+          prevTransactions.length === 0
+            ? 0
+            : prevTransactions[prevTransactions.length - 1].id + 1,
         date: newDate,
         value: newValue,
         type: newType,
